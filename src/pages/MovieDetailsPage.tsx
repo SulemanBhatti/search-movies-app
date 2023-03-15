@@ -5,13 +5,14 @@ import { useFetchMovies } from '../hooks/useFetchMovies';
 import { MoviesResult } from '../types';
 import { useParams } from 'react-router-dom';
 
+// TODO: Improve this page to avoid fetching data again and use the same data from MoviesPage
 const BASE_URL = process.env.REACT_APP_LIST_URL;
 const API_KEY = process.env.REACT_APP_MOVIES_API_KEY;
 const IMAGES_BASE_URL = process.env.REACT_APP_IMAGES_BASE_URL;
 
 export const MovieDetailsPage: React.FC = () => {
   const params = useParams();
-  // TODO: Improve this page to avoid fetching data again
+  // TODO: Improve this component to avoid fetching data again
   const { data, isFetching } = useFetchMovies(
     `${BASE_URL}/list/1?sort_by=vote_average.desc&&api_key=${API_KEY}`
   );
